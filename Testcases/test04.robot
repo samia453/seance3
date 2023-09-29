@@ -5,10 +5,21 @@ Library    SeleniumLibrary
 ${url}=    https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 ${browser}=    edge
 
-*** Keywords ***
+*** Test Cases ***
+
+Tc01 login test
+    Se connecter a l'application orange demo       ${url}    ${browser}
+    Saisir le nom d'utilisation
+    Saisir le mot de passe
+    Cliquer sur le bouton login
+    Valider l affichage de la page d'accueil
+    fermer l application
+
+
+*** keyword***
 Se connecter a l'application orange demo
-    	[Documentation]    Ce keyword  est crée par Samia
-    Open Browser    ${url}    ${browser}
+    	[Arguments]      ${Myurl}    ${Mybrowser}
+    Open Browser        ${Myurl}    ${Mybrowser}
     Maximize Browser Window
     Sleep    3
 Saisir le nom d'utilisation
